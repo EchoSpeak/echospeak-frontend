@@ -3,19 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Websocket Listener</title>
+    <title>Listener</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="https://fav.farm/🔊" />
   </head>
   <body>
-    <select id="websocketSelect">
-      <option value="wss://echospeak-ws-server.onrender.com/">Hindi</option>
-      <option value="wss://echospeak-ws-mr-server.onrender.com/">
+    <div class="container">
+      <div
+        class="language-box"
+        data-url="wss://echospeak-ws-server.onrender.com/"
+      >
+        Hindi
+      </div>
+      <div
+        class="language-box"
+        data-url="wss://echospeak-ws-mr-server.onrender.com/"
+      >
         Marathi
-      </option>
-    </select>
-    <button id="startButton">Start</button>
-    <button id="stopButton" disabled>Stop</button>
+      </div>
+    </div>
+
+    <button id="stopButton">Stop</button>
 
     <script src="script.js"></script>
   </body>
