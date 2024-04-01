@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="branding">
+      <h1>EchoSpeak</h1>
+    </div>
     <select id="websocketSelect">
       <option value="ws://0.0.0.0:9000">Hindi</option>
       <option value="ws://0.0.0.0:9001">Marathi</option>
     </select>
-    <button id="startButton">Start</button>
-    <button id="stopButton" disabled>Stop</button>
+    <div class="container">
+    <button id="startButton">
+      <img src="play-buttton.png" alt="Start" />
+    </button>
+    <button id="stopButton" disabled>
+      <img src="pause.png" alt="Stop" />
+    </button>
+    </div>
 
     <script src="script.js"></script>
   </body>
