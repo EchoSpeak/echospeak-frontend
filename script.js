@@ -1,56 +1,60 @@
-let audioContext;
+let audioContext = null;
 let source = null;
 let queue = [];
-let websocket;
+let websocket = null;
+let currentSelection = null;
 
-document.getElementById("startButton").addEventListener("click", function () {
-  // Disable the start button and enable the stop button
-  document.getElementById("startButton").disabled = true;
-  document.getElementById("stopButton").disabled = false;
+document.querySelectorAll(".language-box").forEach((box) => {
+  box.addEventListener("click", (event) => {
+    // Stop the current WebSocket connection if it exists
+    reset();
 
-  // Close the previous WebSocket connection if it exists
-  if (websocket) {
-    websocket.close();
-    websocket = null;
-  }
+    currentSelection = event.target;
+    currentSelection.dataset.selected = "true";
 
-  const selectedUrl = document.getElementById("websocketSelect").value;
-  websocket = new WebSocket(selectedUrl);
-  websocket.binaryType = "arraybuffer";
+    // Start a new WebSocket connection
+    const url = box.dataset.url;
+    websocket = new WebSocket(url);
+    websocket.binaryType = "arraybuffer";
 
-  audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  websocket.onmessage = function (event) {
-    audioContext.decodeAudioData(
-      event.data,
-      function (buffer) {
-        queue.push(buffer);
-        if (source === null) {
-          playNextAudio();
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    websocket.onmessage = function (event) {
+      audioContext.decodeAudioData(
+        event.data,
+        function (buffer) {
+          queue.push(buffer);
+          if (source === null) {
+            playNextAudio();
+          }
+        },
+        function (e) {
+          console.log("Error decoding audio data", e);
         }
-      },
-      function (e) {
-        console.log("Error decoding audio data", e);
-      }
-    );
-  };
+      );
+    };
+  });
 });
 
-document.getElementById("stopButton").addEventListener("click", function () {
-  // Disable the stop button and enable the start button
-  document.getElementById("stopButton").disabled = true;
-  document.getElementById("startButton").disabled = false;
+document.getElementById("stopButton").addEventListener("click", reset);
 
-  // Close the WebSocket connection and stop the audio
+function reset() {
   if (websocket) {
     websocket.close();
     websocket = null;
   }
+
   if (source) {
     source.stop();
     source = null;
   }
+
   queue = [];
-});
+
+  if (currentSelection) {
+    currentSelection.dataset.selected = "false";
+    currentSelection = null;
+  }
+}
 
 function playNextAudio() {
   if (queue.length === 0) {
