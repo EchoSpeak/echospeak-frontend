@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listener</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="https://fav.farm/🔊" />
-  </head>
-  <body>
-    <div class="container">
-      <div
-        class="language-box"
-        data-url="wss://echospeak-ws-server.onrender.com/"
-      >
-        Hindi
-      </div>
-      <div
-        class="language-box"
-        data-url="wss://echospeak-ws-mr-server.onrender.com/"
-      >
-        Marathi
-      </div>
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listener</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://fav.farm/🔊" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="language-box" data-url="wss://echospeak-ws-server.onrender.com/">
+      <span>Hindi</span>
     </div>
+    <div class="language-box" data-url="wss://echospeak-ws-mr-server.onrender.com/">
+      <span>Marathi</span>
+    </div>
+  </div>
+  <div class="container">
+    <button id="stopButton">
+      <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+      </svg>
+      <span>STOP</span>
+    </button>
+  </div>
 
-    <button id="stopButton">Stop</button>
-
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
