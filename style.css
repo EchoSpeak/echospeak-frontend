@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
+  background-color: #31363F;
   font-family: Arial, sans-serif;
   min-height: 100vh;
 }
@@ -27,23 +27,61 @@ button {
   margin: 30px;
   padding: 20px;
   width: 150px;
+  height: 250px;
   aspect-ratio: 1/1;
   font-size: 30px;
   border: 1px solid #333;
   border-radius: 10px;
-  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  background-color: #76ABAE;
   color: #333;
   cursor: pointer;
 }
 
 .language-box[data-selected="true"] {
-  background: linear-gradient(135deg, #3ade44 0%, #c2e9fb 100%);
+  background: #EEEEEE;
+}
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: absolute;
 }
 
 #stopButton {
-  background-color: #f00;
-  color: #fff;
-  border-radius: 5px;
-  font-size: large;
-  padding: 10px 30px;
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+#stopButton:hover {
+  transition: 1s ease-in-out;
+  background: #222831;
+}
+
+#stopButton:hover svg {
+  stroke-dashoffset: -480;
+}
+
+#stopButton span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
 }
