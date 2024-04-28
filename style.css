@@ -3,11 +3,27 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background-color: #31363F;
-
+  background-color: #EFBC9B;
   font-family: Arial, sans-serif;
   min-height: 100vh;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 5em;
+  color: #333;
+  margin-top: 5px;
+}
+
+img{
+  position: absolute;
+  top: 20px;
+  height: 200px;
+  width: auto;
+  margin-bottom: 20px;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 button {
@@ -23,30 +39,49 @@ button {
 }
 
 .language-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 30px;
-  padding: 20px;
-  width: 150px;
-
-  height: 250px;
-
-  aspect-ratio: 1/1;
-  font-size: 30px;
-  border: 1px solid #333;
-  border-radius: 10px;
-
-  background-color: #76ABAE;
-
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
   color: #333;
-  cursor: pointer;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+  margin: 10px;
+}
+
+.language-box span{
+  position:relative;
+  z-index: 2;
+}
+
+.language-box:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  transition: all .35s;
 }
 
 .language-box[data-selected="true"] {
-  background: #EEEEEE;
+  background: #FBF3D5;
+}
+.language-box:hover{
+  color: #fff;
+  cursor: pointer;
 }
 
+.language-box:hover:after{
+  width: 100%;
+}
 .center {
   width: 180px;
   height: 60px;
@@ -58,12 +93,13 @@ button {
   height: 60px;
   cursor: pointer;
   background: transparent;
-  border: 1px solid #91C9FF;
+  border: 2px solid black;
   outline: none;
   transition: 1s ease-in-out;
   position: absolute;
   right: 10%;
   bottom: 10%;
+  font-family: sans-serif;
 }
 
 svg {
@@ -71,7 +107,7 @@ svg {
   left: 0;
   top: 0;
   fill: none;
-  stroke: #fff;
+  stroke: white;
   stroke-dasharray: 150 480;
   stroke-dashoffset: 150;
   transition: 1s ease-in-out;
@@ -79,7 +115,7 @@ svg {
 
 #stopButton:hover {
   transition: 1s ease-in-out;
-  background: #222831;
+  background: #FBF3D5;
 }
 
 #stopButton:hover svg {
@@ -87,7 +123,7 @@ svg {
 }
 
 #stopButton span {
-  color: white;
+  color: black;
   font-size: 18px;
   font-weight: 100;
 }
