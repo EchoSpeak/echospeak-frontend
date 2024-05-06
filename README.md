@@ -1,4 +1,4 @@
 ## Demo
 
-https://github.com/EchoSpeak/echospeak-frontend/assets/73636812/fd194431-1bf8-4ed4-b81f-cb670131df94
+https://github.com/EchoSpeak/echospeak-frontend/assets/73636812/643afcda-8cc5-4478-a681-c7281609278b
 
