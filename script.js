@@ -9,7 +9,7 @@ document.querySelectorAll(".language-box").forEach((box) => {
     // Stop the current WebSocket connection if it exists
     reset();
 
-    currentSelection = event.target;
+    currentSelection = box;
     currentSelection.dataset.selected = "true";
 
     // Start a new WebSocket connection

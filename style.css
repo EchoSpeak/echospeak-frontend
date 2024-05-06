@@ -2,32 +2,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #EFBC9B;
+  background-color: #efbc9b;
   font-family: Arial, sans-serif;
   min-height: 100vh;
 }
 
 h1 {
   font-family: sans-serif;
-  font-size: 5em;
+  font-size: 3em;
   color: #333;
-  margin-top: 5px;
+  margin-bottom: 100px;
 }
 
-img{
-  position: absolute;
-  top: 20px;
-  height: 200px;
+img {
+  height: 150px;
   width: auto;
-  margin-bottom: 20px;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 50px;
 }
 
 button {
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .container {
@@ -40,6 +35,7 @@ button {
 
 .language-box {
   display: block;
+  border-radius: 5px;
   width: 200px;
   height: 40px;
   line-height: 40px;
@@ -51,37 +47,41 @@ button {
   letter-spacing: 2px;
   text-align: center;
   position: relative;
-  transition: all .35s;
+  transition: all 0.35s;
   margin: 10px;
 }
 
-.language-box span{
-  position:relative;
+.language-box span {
+  position: relative;
   z-index: 2;
 }
 
-.language-box:after{
+.language-box:after {
   position: absolute;
   content: "";
   top: 0;
   left: 0;
   width: 0;
   height: 100%;
-  background: #ff003b;
-  transition: all .35s;
+  background: lightskyblue;
+  transition: all 0.35s;
 }
 
 .language-box[data-selected="true"] {
-  background: #FBF3D5;
+  background: #fbf3d5;
 }
-.language-box:hover{
-  color: #fff;
+.language-box:hover {
   cursor: pointer;
 }
 
-.language-box:hover:after{
+.language-box:hover:not([data-selected="true"])::after {
   width: 100%;
 }
+
+/* .language-box:focus::after {
+  width: 0;
+} */
+
 .center {
   width: 180px;
   height: 60px;
@@ -92,7 +92,7 @@ button {
   width: 180px;
   height: 60px;
   cursor: pointer;
-  background: transparent;
+  background: lightcoral;
   border: 2px solid black;
   outline: none;
   transition: 1s ease-in-out;
@@ -115,7 +115,7 @@ svg {
 
 #stopButton:hover {
   transition: 1s ease-in-out;
-  background: #FBF3D5;
+  background: red;
 }
 
 #stopButton:hover svg {
